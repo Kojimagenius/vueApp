@@ -31,7 +31,7 @@ export default {
     SearchPannel
   },
   mounted(){
-        fetch('https://v2.jokeapi.dev/joke/Any?&amount=3')
+        fetch('https://v2.jokeapi.dev/joke/Any?&amount=10')
         .then(response => response.json())
         .then(json=>setTimeout(()=>{
           let fixedJokes = []
