@@ -31,11 +31,14 @@ export default {
     SearchPannel
   },
   mounted(){
-        fetch('https://v2.jokeapi.dev/joke/Any?type=single&amount=2')
+        fetch('https://v2.jokeapi.dev/joke/Any?&amount=3')
         .then(response => response.json())
         .then(json=>setTimeout(()=>{
           let fixedJokes = []
           for(let jk of json.jokes){
+            if (jk.type !== 'single'){
+              jk.joke = jk.setup + '\n' + jk.delivery;
+            }
             jk.liked = false
             fixedJokes.push(jk);
           }
@@ -66,7 +69,12 @@ export default {
             localStorage.setItem('liked-jokes', parsed);
         },
         search(text){
-          
+          let counter = 0;
+          for (let jk of this.jokes){
+            let index = jk.joke.split(" ").indexOf(text);
+            if (index !== -1){alert(jk.joke);break}
+            counter++;
+          }
         }
     },
 }

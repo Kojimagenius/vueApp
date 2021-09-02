@@ -2,7 +2,7 @@
     <li v-bind:class="{liked: joke.liked}">
     <span>
         <strong>{{id+1}}</strong>
-        {{joke.joke}}
+        {{(joke.joke)}}
         
     </span>
     <button v-on:click="$emit('like',id)">&hearts;</button>
@@ -18,6 +18,14 @@ export default{
         }
     },
     methods: {
+        getJoke(joke){
+            if(joke.type ==='single'){
+                return joke.joke;
+            }
+            else{
+                return joke.setup + '\n'+joke.delivery;
+            }
+        }
         //like(){
             //console.log(this.todo.liked)
           //  this.todo.liked = !this.todo.liked;
