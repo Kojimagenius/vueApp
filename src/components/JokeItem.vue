@@ -26,11 +26,6 @@ export default{
                 return joke.setup + '\n'+joke.delivery;
             }
         }
-        //like(){
-            //console.log(this.todo.liked)
-          //  this.todo.liked = !this.todo.liked;
-           // this.$emit('like', id)
-        //}
     }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
 <div>
     <ul>
-    {{jokes}}
         <JokeItem
         v-for="(joke, ind) of jokes"
         v-on:like="like"
